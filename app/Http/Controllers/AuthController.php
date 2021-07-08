@@ -14,7 +14,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login', 'me']]);
     }
 
     /**
@@ -40,7 +40,18 @@ class AuthController extends Controller
      */
     public function me()
     {
-        return response()->json(auth()->user());
+        // return response()->json(auth()->user());
+        return response()->json([
+            'pesan' => 'Halaman dapat di akses'
+        ]);
+    }
+
+    public function wajib()
+    {
+        // return response()->json(auth()->user());
+        return response()->json([
+            'pesan' => 'Selamat datang, anda telah berhasil login'
+        ]);
     }
 
     /**

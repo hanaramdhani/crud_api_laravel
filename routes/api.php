@@ -25,15 +25,28 @@ Route::get('password', function () {
 });
 
 
+// Route::get('categories', 'API\categoriesController@index')->middleware('auth:api');
 Route::get('categories', 'API\categoriesController@index');
 Route::get('categories/{id}', 'API\categoriesController@show');
 Route::post('categories', 'API\categoriesController@store');
 Route::delete('categories/{id}', 'API\categoriesController@destroy');
 Route::patch('categories/{id}', 'API\categoriesController@update');
 
+Route::get('kamar', 'API\kamarController@index');
+
+
+
+Route::get('pemesanan', 'API\pemesananController@index');
+Route::post('pemesanan', 'API\pemesananController@store');
+Route::delete('pemesanan/{id}', 'API\pemesananController@destroy');
+
+
+Route::get('historiPemesanan', 'API\historiPemesananController@index');
+
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::post('login', 'AuthController@login');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
+    Route::post('wajib', 'AuthController@wajib');
 });

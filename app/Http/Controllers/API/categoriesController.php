@@ -9,9 +9,17 @@ use Illuminate\Support\Facades\Validator;
 
 class categoriesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api', ['except' => ['index']]);
+    }
     public function index()
     {
-        $data = categories::all();
+        $data = categories::with('ktg')->get();
+        // $data = categories::all();
+        // return response()->json($data);
+
+
         return response()->json([
             'pesan' => 'Data Tugas CRUD API 1810530121 Hana Ramdhani',
             'data' => $data
