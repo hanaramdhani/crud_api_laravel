@@ -10,6 +10,6 @@ class histori_pemesanan extends Model
 
     public function pemesanan()
     {
-        return $this->belongsTo(pemesanan::class, 'id_pemesanan');
+        return $this->belongsTo(kamar::class, 'id_kamar');
     }
 }

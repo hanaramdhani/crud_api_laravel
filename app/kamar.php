@@ -13,8 +13,6 @@ class kamar extends Model
     {
         return $this->belongsTo(kategori::class, 'id_kategori');
         // return $this->belongsToMany('App\kategori');
-
-
         // ->join('kategori', 'kategoris.id', '=', 'kamars.id_kategori');
     }
 }

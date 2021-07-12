@@ -26,18 +26,30 @@ class pemesanan extends Model
         // return $this->belongsTo(kategori::class, 'id_kategori');
     }
     public function pemesanan()
+
     {
+        return $this->belongsTo(kamar::class, 'id_kamar')
+            ->rightjoin('kategoris', 'kamars.id_kategori', '=', 'kategoris.id');
+
+
+        // fix 3
+        // return $this->belongsTo(pemesanan::class, 'id')
+        //     // ->join(kategori::class, 'id_kategori');
+        //     ->join('kamars', 'kamars.id', '=', 'pemesanans.id_kamar')
+        //     ->join('kategoris', 'kategoris.id', '=', 'kamars.id_kategori')
+        //     ->select('*');
+
 
         // return $this->belongsToMany('App\pemesanan', 'id_kamar')
         //     ->join('kamars', 'kamars.id', '=', 'pemesanans.id_kamar')
         //     ->where('pemesanans.id_kamar', '=', 'kamars.id');
 
         // fix2
-        // return $this->hasMany('App\pemesanan', 'id')
+        // return $this->hasMany('App\pemesanan', 'id_kamar')
         //     ->join('kamars', 'kamars.id', '=', 'pemesanans.id_kamar')
         //     ->join('kategoris', 'kategoris.id', '=', 'kamars.id_kategori')
         //     // ->where('pemesanans.id_kamar', '=', 'kamars.id')
-        //     ->where('pemesanans.id_kamar', '=', 'kamars.id')
+        //     // ->where('pemesanans.id_kamar', '=', 'kamars.id')
         //     ->select('*');
 
         // return $this->hasMany('App\kamar', 'id')
