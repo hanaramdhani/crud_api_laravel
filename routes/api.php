@@ -46,6 +46,12 @@ Route::delete('pemesanan/{id}', 'API\pemesananController@destroy');
 
 Route::get('kategori', 'API\kategoriController@index');
 
+Route::get('kategoriAdmin', 'API\kategorisController@index');
+Route::get('kategoriAdmin/{id}', 'API\kategorisController@show');
+Route::post('kategoriAdmin', 'API\kategorisController@store');
+Route::patch('kategoriAdmin/{id}', 'API\kategorisController@update');
+Route::delete('kategoriAdmin/{id}', 'API\kategorisController@destroy');
+
 
 Route::get('historiPemesanan', 'API\historiPemesananController@index');
 

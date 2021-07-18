@@ -11,12 +11,15 @@ use Illuminate\Support\Facades\Validator;
 
 class kamarController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api', ['except' => ['index']]);
+    }
     public function index()
     {
         // $data = kategori_kamar::all();
         // fix
         $data = kamar::with('kategori')->get();
-
         // $data = kamar::whereHas('kategori', function ($q) {
         //     $q->where('kategoris.id', '=', 'kamars.id_kategori');
         // })->get();

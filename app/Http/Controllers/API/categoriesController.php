@@ -34,11 +34,12 @@ class categoriesController extends Controller
                 'pesan' => 'Data Tidak Ada',
                 'data' => ''
             ], 404);
-            return response()->json([
-                'pesan' => 'Silahkan login untuk mengakses halaman ini',
-                'data' => ''
-            ], 500);
+            // return response()->json([
+            //     'pesan' => 'Silahkan login untuk mengakses halaman ini',
+            //     'data' => ''
+            // ], 500);
         }
+
         return response()->json([
             'pesan' => 'Data Dengan ID Tersebut Berhasil Ditemukan',
             'data' => $data

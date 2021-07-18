@@ -19,6 +19,8 @@ class kategoriController extends Controller
         kategoris.id AS kategori_id,
         nama_kategori,
         harga,
+        maksimal_tamu,
+        fasilitas,
         COUNT( id_kategori ) AS jumlah_kamar_tersedia 
         FROM
             kamars
