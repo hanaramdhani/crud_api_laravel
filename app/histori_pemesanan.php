@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class histori_pemesanan extends Model
 {
-    protected $guarded = 'histori_pemesanans';
+    protected $table = 'histori_pemesanans';
 
     public function pemesanan()
     {

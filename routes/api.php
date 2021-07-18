@@ -38,15 +38,13 @@ Route::post('kamar', 'API\kamarController@store');
 Route::patch('kamar/{id}', 'API\kamarController@update');
 Route::delete('kamar/{id}', 'API\kamarController@destroy');
 
-
-
 Route::get('pemesanan', 'API\pemesananController@index');
 Route::get('pemesanan/{id}', 'API\pemesananController@show');
 Route::post('pemesanan', 'API\pemesananController@store');
 Route::patch('pemesanan/{id}', 'API\pemesananController@update');
 Route::delete('pemesanan/{id}', 'API\pemesananController@destroy');
 
-
+Route::get('kategori', 'API\kategoriController@index');
 
 
 Route::get('historiPemesanan', 'API\historiPemesananController@index');
