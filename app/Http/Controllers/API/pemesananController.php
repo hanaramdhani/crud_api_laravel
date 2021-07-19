@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Validator;
 
 class pemesananController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api', ['except' => ['store']]);
+    }
     public function index()
     {
         // $data = pemesanan::with('kmr')->get();

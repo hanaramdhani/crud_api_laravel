@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\kategori;
 use Illuminate\Support\Facades\Validator;
-
 class kategorisController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api', ['except' => ['index']]);
+    }
     public function index()
     {
         $data = kategori::all();
