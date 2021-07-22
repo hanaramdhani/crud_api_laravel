@@ -15,8 +15,8 @@ class CreatePemesanansTable extends Migration
     {
         Schema::create('pemesanans', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama_kamar');
-            $table->string('deskripsi');
+            $table->string('nama_kamar')->nullable();
+            $table->string('deskripsi')->nullable();
             $table->integer('lama_pesan');
             $table->integer('id_kamar');
             $table->timestamps();
