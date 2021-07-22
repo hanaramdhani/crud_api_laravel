@@ -100,8 +100,8 @@ class pemesananController extends Controller
     public function store(Request $request)
     {
         $validasi = Validator::make($request->all(), [
-            "nama_kamar" => "required",
-            "deskripsi" => "required",
+            // "nama_kamar" => "required",
+            // "deskripsi" => "required",
             "lama_pesan" => "required",
             "id_kamar" => "required",
             "total" => "required",
@@ -125,8 +125,8 @@ class pemesananController extends Controller
         $data = pemesanan::where('id', $id)->first();
         if (!empty($data)) {
             $validasi = Validator::make($request->all(), [
-            "nama_kamar" => "required",
-            "deskripsi" => "required",
+            // "nama_kamar" => "required",
+            // "deskripsi" => "required",
             "lama_pesan" => "required",
             "id_kamar" => "required",
             "total" => "required",
