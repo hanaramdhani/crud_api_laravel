@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2021 at 01:52 AM
+-- Generation Time: Jul 23, 2021 at 05:18 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -72,8 +72,8 @@ CREATE TABLE `histori` (
 CREATE TABLE `histori_pemesanans` (
   `id` int(10) UNSIGNED NOT NULL,
   `id_pemesanan` int(11) NOT NULL,
-  `nama_kamar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `deskripsi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_kamar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deskripsi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `lama_pesan` int(11) NOT NULL,
   `id_kamar` int(11) NOT NULL,
   `total` int(11) NOT NULL,
@@ -90,7 +90,15 @@ INSERT INTO `histori_pemesanans` (`id`, `id_pemesanan`, `nama_kamar`, `deskripsi
 (1, 1, '002', 'lantai 1', 10, 1, 8000000, NULL, NULL, ''),
 (2, 17, '004', 'lantai 1', 10, 2, 8000000, NULL, NULL, 'Hana Ramdhani'),
 (3, 20, '025', 'lantai 5', 10, 25, 4000000, NULL, NULL, 'Apriliani'),
-(4, 23, '002', 'lantai 3', 10, 2, 10000000, NULL, NULL, 'Yaya');
+(4, 23, '002', 'lantai 3', 10, 2, 10000000, NULL, NULL, 'Yaya'),
+(5, 1, '001', 'lantai 1', 10, 1, 4000000, NULL, NULL, ''),
+(6, 2, '002', 'lantai 5', 10, 21, 8000000, NULL, NULL, ''),
+(7, 8, '002', 'lantai 1', 10, 2, 8000000, NULL, NULL, ''),
+(8, 14, '004', 'lantai 1', 10, 2, 8000000, NULL, NULL, ''),
+(9, 22, '013', 'lantai 3', 10, 13, 10000000, NULL, NULL, 'Yaya'),
+(10, 24, NULL, NULL, 10, 1, 4000000, NULL, NULL, 'Asni'),
+(11, 25, NULL, NULL, 10, 25, 10000000, NULL, NULL, 'Endah Koma'),
+(12, 26, NULL, NULL, 10, 25, 10000000, NULL, NULL, 'Lia Riberu');
 
 -- --------------------------------------------------------
 
@@ -125,7 +133,7 @@ INSERT INTO `kamars` (`id`, `nama_kamar`, `deskripsi`, `created_at`, `updated_at
 (10, '010', 'lantai 2', NULL, NULL, 2, 'tersedia'),
 (11, '011', 'lantai 3', NULL, NULL, 3, 'tersedia'),
 (12, '012', 'lantai 3', NULL, NULL, 3, 'tersedia'),
-(13, '013', 'lantai 3', NULL, NULL, 3, 'disewa'),
+(13, '013', 'lantai 3', NULL, NULL, 3, 'tersedia'),
 (14, '014', 'lantai 3', NULL, NULL, 3, 'disewa'),
 (15, '015', 'lantai 3', NULL, NULL, 3, 'tersedia'),
 (16, '016', 'lantai 4', NULL, NULL, 4, 'tersedia'),
@@ -138,7 +146,7 @@ INSERT INTO `kamars` (`id`, `nama_kamar`, `deskripsi`, `created_at`, `updated_at
 (23, '023', 'lantai 5', NULL, NULL, 5, 'disewa'),
 (24, '024', 'lantai 5', NULL, NULL, 5, 'tersedia'),
 (25, '025', 'lantai 5', NULL, NULL, 5, 'tersedia'),
-(26, 'Holla', 'lantai 5', '2021-07-11 21:49:30', '2021-07-11 22:11:47', 5, 'tersedia');
+(29, '026', 'lantai 7', '2021-07-21 21:36:26', '2021-07-21 21:36:26', 7, 'tersedia');
 
 -- --------------------------------------------------------
 
@@ -258,8 +266,8 @@ CREATE TABLE `pemesanannn` (
 
 CREATE TABLE `pemesanans` (
   `id` int(10) UNSIGNED NOT NULL,
-  `nama_kamar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `deskripsi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_kamar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deskripsi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `lama_pesan` int(11) NOT NULL,
   `id_kamar` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -273,14 +281,9 @@ CREATE TABLE `pemesanans` (
 --
 
 INSERT INTO `pemesanans` (`id`, `nama_kamar`, `deskripsi`, `lama_pesan`, `id_kamar`, `created_at`, `updated_at`, `total`, `nama_guest`) VALUES
-(1, '001', 'lantai 1', 10, 1, NULL, NULL, 4000000, ''),
-(2, '002', 'lantai 5', 10, 21, NULL, NULL, 8000000, ''),
-(8, '002', 'lantai 1', 10, 2, '2021-07-05 04:51:20', '2021-07-05 04:51:20', 8000000, ''),
-(14, '004', 'lantai 1', 10, 2, '2021-07-05 06:07:52', '2021-07-05 06:07:52', 8000000, ''),
 (18, '007', 'lantai 2', 10, 6, '2021-07-07 21:41:36', '2021-07-11 23:06:24', 10000000, 'Endah Koma'),
 (19, '007', 'lantai 2', 10, 19, '2021-07-07 23:26:59', '2021-07-07 23:26:59', 10000000, 'Endah'),
-(21, '023', 'lantai 5', 10, 23, '2021-07-12 01:21:21', '2021-07-12 01:21:21', 10000000, 'Endah'),
-(22, '013', 'lantai 3', 10, 13, '2021-07-12 01:23:18', '2021-07-12 01:23:18', 10000000, 'Yaya');
+(21, '023', 'lantai 5', 10, 23, '2021-07-12 01:21:21', '2021-07-21 21:42:54', 10000000, 'Endah Komaria Lestari');
 
 --
 -- Triggers `pemesanans`
@@ -438,19 +441,19 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `histori_pemesanans`
 --
 ALTER TABLE `histori_pemesanans`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `kamars`
 --
 ALTER TABLE `kamars`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `kategoris`
 --
 ALTER TABLE `kategoris`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -462,7 +465,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pemesanans`
 --
 ALTER TABLE `pemesanans`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `users`
