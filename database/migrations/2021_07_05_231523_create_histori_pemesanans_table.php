@@ -16,8 +16,8 @@ class CreateHistoriPemesanansTable extends Migration
         Schema::create('histori_pemesanans', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_pemesanan');
-            $table->string('nama_kamar');
-            $table->string('deskripsi');
+            $table->string('nama_kamar')->nullable();
+            $table->string('deskripsi')->nullable();
             $table->integer('lama_pesan');
             $table->integer('id_kamar');
             $table->integer('total');
